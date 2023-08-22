@@ -29,7 +29,11 @@
 
 <AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" slotLead="place-content-start">
     <svelte:fragment slot="lead">
-        <h1 class="h2">Promethium Network</h1>
+        <h1 class="h2">
+            <span class="bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent box-decoration-clone">
+                Promethium Network
+            </span>
+        </h1>
     </svelte:fragment>
     <nav class="flex justify-center space-x-5">
         <a href="/" class="btn variant-ghost-primary">
@@ -46,7 +50,7 @@
         </a>
     </nav>
     <svelte:fragment slot="trail">
-        <button type="button" class="btn variant-ghost-secondary" use:clipboard={ip} on:click={onClick} use:popup={popupHover}>play.promethium-network.net</button>
+        <button type="button" class="btn variant-glass-secondary" use:clipboard={ip} on:click={onClick} use:popup={popupHover}>play.promethium-network.net</button>
         <LightSwitch />
     </svelte:fragment>
 </AppBar>
