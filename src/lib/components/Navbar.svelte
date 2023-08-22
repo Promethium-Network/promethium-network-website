@@ -1,12 +1,39 @@
 <script lang="ts">
-    import {AppBar, LightSwitch} from "@skeletonlabs/skeleton";
+    import {AppBar, LightSwitch, clipboard, getToastStore, type ToastSettings, popup, type PopupSettings} from "@skeletonlabs/skeleton";
     import {page} from "$app/stores";
 
+    const t: ToastSettings = {
+        message: 'The server IP has been copied to clipboard :)',
+        background: 'bg-gradient-to-br variant-gradient-secondary-tertiary text-white',
+    }
+
+    const toastStore = getToastStore();
+
+    const ip = 'play.promethium-network.net';
+
+    const popupHover: PopupSettings = {
+        event: 'hover',
+        target: 'popupHover',
+        placement: 'bottom'
+    }
+
+    const onClick = () => {
+        toastStore.trigger(t);
+    }
 </script>
+
+<div class="card p-4 variant-filled-secondary" data-popup="popupHover">
+    <p>Copy IP to clipboard :)</p>
+    <div class="arrow variant-filled-secondary" />
+</div>
 
 <AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" slotLead="place-content-start">
     <svelte:fragment slot="lead">
-        <h1 class="h2">Promethium Network</h1>
+        <h1 class="h2">
+            <span class="bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent box-decoration-clone">
+                Promethium Network
+            </span>
+        </h1>
     </svelte:fragment>
     <nav class="flex justify-center space-x-5">
         <a href="/" class="btn variant-ghost-primary">
@@ -23,6 +50,7 @@
         </a>
     </nav>
     <svelte:fragment slot="trail">
+        <button type="button" class="btn variant-glass-secondary" use:clipboard={ip} on:click={onClick} use:popup={popupHover}>play.promethium-network.net</button>
         <LightSwitch />
     </svelte:fragment>
 </AppBar>
