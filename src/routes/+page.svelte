@@ -25,6 +25,10 @@
     let promise = fetch('https://eu.mc-api.net/v3/server/ping/play.promethium-network.net').then((x) => x.json())
 </script>
 
+<svelte:head>
+    <title>Promethium Network</title>
+</svelte:head>
+
 <div class="bg-[url(/src/lib/images/bg.png)] h-full">
     <div class="flex justify-center py-40 space-x-4">
         <div class="w-2/4 space-y-8">

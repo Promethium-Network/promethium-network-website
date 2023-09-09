@@ -2,6 +2,10 @@
     import {TableOfContents, tocCrawler} from "@skeletonlabs/skeleton";
 </script>
 
+<svelte:head>
+    <title>Promethium Network - Rules</title>
+</svelte:head>
+
 <div class="px-4">
     <div class="text-center">
         <div class="py-4">
